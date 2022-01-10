@@ -30,7 +30,7 @@ public class ChatHandler extends TextWebSocketHandler {
 	protected void handleTextMessage(
 			WebSocketSession session, TextMessage message) throws Exception {
 		log(session.getId() + "로부터 메시지 수신: " + message.getPayload());
-		TextMessage msg = new TextMessage( message.getPayload().substring(4));
+		TextMessage msg = new TextMessage(message.getPayload());
 
 		for (WebSocketSession s : users.values()) {
 			s.sendMessage(msg);
